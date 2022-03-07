@@ -2,11 +2,16 @@ var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var logger = require('morgan');
+const mongoose = require('mongoose');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
+const initializeMongo = require('./mongoConfig');
+
 var app = express();
+
+initializeMongo();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
