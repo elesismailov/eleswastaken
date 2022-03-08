@@ -8,6 +8,8 @@ const PostSchema = new Schema({
 	date: {type: Date, required: true},
 });
 
+// virtual property url
+//		either a title or id
 
 
 module.exports = mongoose.model('Post', PostSchema);

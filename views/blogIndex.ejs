@@ -5,6 +5,19 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-	<p><%= posts %></p>
+	<% if (posts.length) {%>
+	<h1>Posts</h1>
+		<ul>
+		<% for (const post of posts) {%>
+			<li>
+				<h2><%= post.title %></h2>
+				<p><%= post.body.slice(100) %></p>
+				<p><%= new Date(post.date) %></p>
+			</li>
+		<% }%>
+		</ul>
+	<% } else { %>
+	<h1>There is nothing yet!</h1>
+	<% } %>
   </body>
 </html>
