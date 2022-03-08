@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 
 var indexRouter = require('./routes/index');
 const blogRouter = require('./routes/blog.js');
+const adminRouter = require('./routes/admin.js');
 
 const initializeMongo = require('./mongoConfig');
 
@@ -26,7 +27,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/blog', blogRouter);
-
+app.use('/admin', adminRouter);
 
 
 // catch 404 and forward to error handler
