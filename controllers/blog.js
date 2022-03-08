@@ -11,6 +11,15 @@ exports.getIndex = function(req, res) {
 
 }
 
-exports.getPost = function(req, res) {
+exports.getPost = async function(req, res) {
+
+	const post = await Post.findById(req.params.id);
+
+	if (!post) {
+		res.sendStatus(404)
+		return 
+	}
+
+	res.render('blogPost', { post });
 
 }

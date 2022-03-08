@@ -6,7 +6,7 @@ const blogController = require('../controllers/blog');
 
 router.get('/', blogController.getIndex);
 
-router.get('/:id', blogController.getPost);
+router.get('/post/:id', blogController.getPost);
 /*
 
 router.put('/:id', blogController.putPost);
