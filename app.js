@@ -5,7 +5,7 @@ var logger = require('morgan');
 const mongoose = require('mongoose');
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+const blogRouter = require('./routes/blog.js');
 
 const initializeMongo = require('./mongoConfig');
 
@@ -25,7 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/blog', blogRouter);
 
 
 
