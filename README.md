@@ -1,6 +1,6 @@
 ### Hi there 👋
 
-[My website](eleswastaken.herokuapp.com)
+[My website](https://eleswastaken.herokuapp.com)
 
 <!--
 **eleswastaken/eleswastaken** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
