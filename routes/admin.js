@@ -2,16 +2,19 @@ const express = require('express');
 const router = express.Router();
 
 const adminController = require('../controllers/admin');
+const authenticate = require('../middleware/auth');
 
-router.get('/', function(req, res) {});
+router.get('/', authenticate, function(req, res) {
+	res.send('the index page');
+});
 
 router.get('/log-in', adminController.getLogIn);
 
 router.post('/log-in', adminController.postLogIn);
 
-router.get('/post', adminController.getPost);
+router.get('/post', authenticate, adminController.getPost);
 
-router.post('/post', adminController.postPost);
+router.post('/post', authenticate, adminController.postPost);
 
 
 module.exports = router;

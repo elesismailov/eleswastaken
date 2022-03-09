@@ -28,7 +28,7 @@ exports.postLogIn = async function(req, res) {
 		res.cookie('jwt_token', token, {
 			httpOnly: true,
 		});
-		res.redirect('/');	
+		res.redirect('/admin');	
 		return
 	}
 
