@@ -4,9 +4,7 @@ const router = express.Router();
 const adminController = require('../controllers/admin');
 const authenticate = require('../middleware/auth');
 
-router.get('/', authenticate, function(req, res) {
-	res.send('the index page');
-});
+router.get('/', authenticate, adminController.getIndex);
 
 router.get('/log-in', adminController.getLogIn);
 

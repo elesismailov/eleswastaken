@@ -3,6 +3,10 @@ const jwt = require('jsonwebtoken');
 
 const User = require('../models/user');
 
+exports.getIndex = function(req, res) {
+	res.render('admin/index');
+}
+
 exports.getLogIn = function(req, res) {
 	res.render('admin/loginForm');
 }
