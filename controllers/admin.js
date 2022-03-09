@@ -2,6 +2,7 @@
 const jwt = require('jsonwebtoken');
 
 const User = require('../models/user');
+const Post = require('../models/post');
 
 exports.getIndex = function(req, res) {
 	res.render('admin/index');
@@ -44,6 +45,29 @@ exports.getPost = function(req, res) {
 }
 
 exports.postPost = function(req, res) {
+	console.log(req.body);
+	const { title, body } = req.body;
+	
+	if (! (title && body)) {
+		res.status(400).send('Something is missing');
+		// redirect back to the post form with the data
+		// but also with errors
+		return
+	}
+	
+	const post = new Post({
+		title,
+		body,
+		date: new Date(),
+	});
+
+	post.save( err => {
+		if (err) {
+			res.sendStatus(500);
+			return 
+		}
+		res.redirect(post.url);
+	});
 
 }
 
