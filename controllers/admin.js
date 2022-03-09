@@ -9,7 +9,33 @@ exports.getIndex = function(req, res) {
 }
 
 exports.getLogIn = function(req, res) {
-	res.render('admin/loginForm');
+	if (!req.cookies) {
+		res.render('admin/loginForm');
+		return
+	}
+
+	const token = req.cookies.jwt_token;
+
+	if (!token) {
+		res.render('admin/loginForm');
+		return
+	}
+
+	jwt.verify(token, process.env.JWT_KEY, function(err, decoded) {
+		if (err) {
+			res.render('admin/loginForm');
+			return
+		} 
+
+		// check whether the decoded data is in the db
+		User.findById(decoded.id).exec( (err, user) => {
+			if (err || !user) {
+				res.status(404).send('User does not exist');
+				return
+			}
+			res.redirect('/admin');
+		})
+	});
 }
 
 exports.postLogIn = async function(req, res) {
