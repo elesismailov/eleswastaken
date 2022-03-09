@@ -6,5 +6,16 @@
   </head>
   <body>
     <h1>Create New Post</h1>
+	<form action='/admin/post' method='POST'>
+		<label>
+			<p>Title:</p>
+			<input type="text" name='title' required>
+		</label>
+		<label>
+			<p>Log Body:</p>
+			<textarea  name="body" cols="90" rows="10"></textarea>
+		</label>
+		<button>Submit</button>
+	</form>
   </body>
 </html>
