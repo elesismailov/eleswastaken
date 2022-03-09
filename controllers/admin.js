@@ -42,3 +42,12 @@ exports.getPost = function(req, res) {
 exports.postPost = function(req, res) {
 
 }
+
+
+exports.logOut = function(req, res) {
+	res.clearCookie('jwt_token');
+	res.redirect('/');
+}
+
+
+

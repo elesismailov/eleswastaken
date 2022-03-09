@@ -12,6 +12,8 @@ router.get('/log-in', adminController.getLogIn);
 
 router.post('/log-in', adminController.postLogIn);
 
+router.get('/log-out', adminController.logOut);
+
 router.get('/post', authenticate, adminController.getPost);
 
 router.post('/post', authenticate, adminController.postPost);
