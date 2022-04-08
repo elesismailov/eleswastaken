@@ -1,0 +1,8 @@
+
+.breadcrumbs-list {
+	display: flex;
+	list-style: none;
+	gap: 5px;
+}
+
+
