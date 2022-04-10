@@ -19,7 +19,6 @@ img, svg {
 }
 
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   line-height: 1.6;
 }
@@ -28,3 +27,21 @@ a {
   color: #00B7FF;
 }
 
+.hero {
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	padding-left: 100px;
+	
+	background-color: #271927; 
+	color: #fff;
+}
+
+.hero #my-picture {
+	width: 150px;
+	height: 150px;
+	border-radius: 999px;
+	overflow: hidden;
+	margin-bottom: 25px;
+}
