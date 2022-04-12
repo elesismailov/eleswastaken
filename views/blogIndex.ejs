@@ -3,6 +3,7 @@
   <head>
     <title>Posts</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/blogMain.css' />
   </head>
   <body>
 	  <%- include('header.ejs') %>
@@ -11,10 +12,10 @@
 		<h1>Blog Posts</h1>
 			<ul>
 			<% for (const post of posts) {%>
-				<li>
-					<a href="<%= post.url %>"><h2><%= post.title %></h2></a>
-					<p><%= post.preview ? post.preview : post.body.slice(0, 100) + '...' %></p>
-					<p><%= new Date(post.date).toLocaleDateString("en-US", { year: 'numeric', month: 'long', day: 'numeric' }) %></p>
+				<li class='post'>
+					<a class='title' href="<%= post.url %>"><h2><%= post.title %></h2></a>
+					<p class='subtitle'><%= post.subtitle ? post.subtitle: post.body.slice(0, 100) + '...' %></p>
+					<p class='date'><time><%= new Date(post.date).toLocaleDateString("en-US", { year: 'numeric', month: 'long', day: 'numeric' }) %></time></p>
 				</li>
 			<% }%>
 			</ul>

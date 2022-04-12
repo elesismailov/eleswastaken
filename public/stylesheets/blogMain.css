@@ -1,0 +1,27 @@
+
+main {
+	padding: 70px 100px;
+	color: #fff;
+	background-color: #271927; 
+}
+
+
+h1, .post {
+	margin-bottom: 20px;
+}
+
+.subtitle {
+	color: #ccc;
+	font-style: italic;
+	font-weight: 200;
+}
+
+.date {
+	color: #8d8d8d
+}
+
+.title h2 {
+	color: #5bf;
+	display: inline-block;
+}
+
