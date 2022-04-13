@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= log.title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/post.css' />
+  </head>
+  <body>
+     <ol class='breadcrumbs-list'>
+      <li>
+        <a href="/">home</a>
+		/
+      </li>
+      <li>
+        <a href="/blog">blog</a>
+		/
+      </li>
+    </ol>
+
+	<article>
+		<h1><%= log.title %></h1>
+		<%- log.body %>
+	</article>
+  </body>
+</html>

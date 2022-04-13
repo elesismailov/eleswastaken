@@ -15,18 +15,18 @@ exports.getIndex = function(req, res) {
 
 exports.getPost = async function(req, res) {
 
-	const post = await LogPost.findById(req.params.id);
+	const log = await LogPost.findById(req.params.id);
 
 	converter = new showdown.Converter();
 
-	if (!post) {
+	if (!log) {
 		res.sendStatus(404)
 		return 
 	}
 
-	htmlBody = converter.makeHtml(post.body)
-	post.body = htmlBody
+	htmlBody = converter.makeHtml(log.body)
+	log.body = htmlBody
 
-	res.render('logPost', { post });
+	res.render('log/log', { log });
 
 }
