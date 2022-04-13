@@ -71,8 +71,7 @@ exports.getPost = function(req, res) {
 }
 
 exports.postPost = function(req, res) {
-	console.log(req.body);
-	const { title, body } = req.body;
+	const { title, subtitle, body } = req.body;
 	
 	if (! (title && body)) {
 		res.status(400).send('Something is missing');
@@ -83,12 +82,14 @@ exports.postPost = function(req, res) {
 	
 	const post = new Post({
 		title,
+		subtitle,
 		body,
 		date: new Date(),
 	});
 
 	post.save( err => {
 		if (err) {
+			console.log(err)
 			res.sendStatus(500);
 			return 
 		}
