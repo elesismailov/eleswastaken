@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Create New Blog Post</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Create New Blog Post</h1>
+	<form action='/admin/blog-post' method='POST'>
+		<label>
+			<p>Title:</p>
+			<input type="text" name='title' required>
+		</label>
+		<label>
+			<p>Subtitle:</p>
+			<input type="text" name='subtitle' required>
+		</label>
+		<label>
+			<p>Log Body:</p>
+			<textarea  name="body" cols="90" rows="10"></textarea>
+		</label>
+		<button>Submit</button>
+	</form>
+  </body>
+</html>

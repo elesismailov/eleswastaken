@@ -12,9 +12,12 @@ router.post('/log-in', adminController.postLogIn);
 
 router.get('/log-out', adminController.logOut);
 
-router.get('/post', authenticate, adminController.getPost);
+router.get('/blog-post', authenticate, adminController.getBlogPost);
 
-router.post('/post', authenticate, adminController.postPost);
+router.post('/blog-post', authenticate, adminController.postBlogPost);
 
+router.get('/log-post', authenticate, adminController.getLogPost);
+
+router.post('/log-post', authenticate, adminController.postLogPost);
 
 module.exports = router;

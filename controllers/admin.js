@@ -2,7 +2,8 @@
 const jwt = require('jsonwebtoken');
 
 const User = require('../models/user');
-const Post = require('../models/post');
+const BlogPost = require("../models/post");
+const LogPost = require('../models/logPost');
 
 exports.getIndex = function(req, res) {
 	res.render('admin/index');
@@ -66,11 +67,11 @@ exports.postLogIn = async function(req, res) {
 	res.status(400).send('Incorrect password');
 }
 
-exports.getPost = function(req, res) {
-	res.render('admin/postForm');
+exports.getBlogPost = function(req, res) {
+	res.render('admin/blog/newPost');
 }
 
-exports.postPost = function(req, res) {
+exports.postBlogPost = function(req, res) {
 	const { title, subtitle, body } = req.body;
 	
 	if (! (title && body)) {
@@ -80,7 +81,7 @@ exports.postPost = function(req, res) {
 		return
 	}
 	
-	const post = new Post({
+	const post = new BlogPost({
 		title,
 		subtitle,
 		body,
@@ -96,6 +97,39 @@ exports.postPost = function(req, res) {
 		res.redirect(post.url);
 	});
 
+}
+
+exports.getLogPost = function(req, res) {
+	res.render('admin/log/newPost')
+}
+
+exports.postLogPost = function(req, res) {
+	
+	const { title, subtitle, body } = req.body;
+	
+	if (! (title && body)) {
+		res.status(400).send('Something is missing');
+		// redirect back to the post form with the data
+		// but also with errors
+		return
+	}
+	
+	const post = new LogPost({
+		title,
+		subtitle,
+		body,
+		date: new Date(),
+	});
+
+
+	post.save( err => {
+		if (err) {
+			console.log(err)
+			res.sendStatus(500);
+			return 
+		}
+		res.redirect(post.url);
+	});
 }
 
 
