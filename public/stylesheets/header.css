@@ -25,6 +25,14 @@ header nav ul {
 	padding: 0 25px;
 }
 
+header .home-link {
+	color: #fff;
+	display: flex;
+	align-items: center;
+	margin-left: 100px;
+	font-size: 18px;
+}
+
 header nav ul li a { 
 	color: #fff;
 	text-decoration: none;
