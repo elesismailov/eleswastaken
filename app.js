@@ -7,8 +7,9 @@ const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
 
 var indexRouter = require('./routes/index');
-const blogRouter = require('./routes/blog.js');
-const adminRouter = require('./routes/admin.js');
+const blogRouter = require('./routes/blog');
+const logRouter = require('./routes/log');
+const adminRouter = require('./routes/admin');
 
 const initializeMongo = require('./mongoConfig');
 
@@ -30,6 +31,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/blog', blogRouter);
+app.use('/log', logRouter);
 app.use('/admin', adminRouter);
 
 
