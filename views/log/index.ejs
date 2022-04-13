@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Posts</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/blogMain.css' />
+  </head>
+  <body>
+	<%- include('../header.ejs') %>
+	<% if (logs.length) {%>
+	<main>
+		<h1>Logging is good way to back track</h1>
+			<ul>
+			<% for (const log of logs) {%>
+				<li class='post'>
+					<a class='title' href="<%= log.url %>"><h2><%= log.title %></h2></a>
+					<p class='subtitle'><%= log.subtitle ? log.subtitle: log.body.slice(0, 100) + '...' %></p>
+					<p class='date'><time><%= new Date(log.date).toLocaleDateString("en-US", { year: 'numeric', month: 'long', day: 'numeric' }) %></time></p>
+				</li>
+			<% }%>
+			</ul>
+		<% } else { %>
+		<h1>There is nothing yet!</h1>
+	</main>
+	<% } %>
+  </body>
+</html>

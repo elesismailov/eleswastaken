@@ -6,8 +6,8 @@ exports.getIndex = function(req, res) {
 
 	const limit = req.query.number || 7;
 
-	Post.find().limit(limit).exec( (err, posts) => {
-		res.render('logIndex', { posts })
+	Post.find().limit(limit).exec( (err, logs) => {
+		res.render('log/index', { logs })
 	});
 
 }
