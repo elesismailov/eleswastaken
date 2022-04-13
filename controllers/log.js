@@ -1,12 +1,13 @@
 
 const showdown = require('showdown');
-const Post = require('../models/post');
+const LogPost = require('../models/logPost');
 
 exports.getIndex = function(req, res) {
 
-	const limit = req.query.number || 7;
+	// const limit = req.query.number || 7;
 
-	Post.find().limit(limit).exec( (err, logs) => {
+	// Post.find().limit(limit).exec( (err, logs) => {
+	LogPost.find().exec( (err, logs) => {
 		res.render('log/index', { logs })
 	});
 
@@ -14,7 +15,7 @@ exports.getIndex = function(req, res) {
 
 exports.getPost = async function(req, res) {
 
-	const post = await Post.findById(req.params.id);
+	const post = await LogPost.findById(req.params.id);
 
 	converter = new showdown.Converter();
 
