@@ -1,6 +1,6 @@
 ### Hi there 👋
 
-[My website](https://eleswastaken.herokuapp.com)
+[My Blog](https://eleswastaken.com/blog)
 
 Just waiting for something to happen!
 
