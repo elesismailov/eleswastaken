@@ -1,4 +1,4 @@
-### Hi there 👋
+### This repo is archived.
 
 [My Blog](https://eleswastaken.com/blog)
 
